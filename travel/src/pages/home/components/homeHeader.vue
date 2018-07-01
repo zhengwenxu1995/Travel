@@ -44,5 +44,5 @@ export default {
         line-height :0.86rem
         text-align :center
         .city
-            font-size : 0.24rem
+            font-size : 0.20rem
 </style>    

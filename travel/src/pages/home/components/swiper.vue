@@ -52,11 +52,10 @@ export default {
 .swiper>>> .swiper-pagination-bullet-active
     background :#fff
 .swiper
+    overflow hidden
     width :100%
     height :0
-    overflow hidden
-    //height :31.25vm 兼容不好
-    padding-bottom :31.25%
+    padding-bottom :26.25%
     .img-swiper 
         width: 100%;
 </style>
