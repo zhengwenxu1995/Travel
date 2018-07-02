@@ -12,5 +12,6 @@ export default new Router({
       name: 'Home',//给路由项起名字
       component: Home//显示的组件
     }
-  ]
+  ],
+  mode:"history"
 })
