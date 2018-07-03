@@ -5,9 +5,10 @@
                 &#xe602;
             </div>
         </div>
-        <div class="header-input"><span class="iconfont">&#xe792;
-</span>输入城市/景点游玩主题</div>
-        <div class="header-right">{{this.city}}<span class="iconfont city">&#xe64a;</span></div>
+        <div class="header-input"><span class="iconfont">&#xe792;</span>输入城市/景点游玩主题</div>
+        <router-link to="/city">
+            <div class="header-right">{{this.city}}<span class="iconfont city">&#xe64a;</span></div>
+        </router-link>
     </div>
 </template>
 
@@ -46,6 +47,7 @@ export default {
         width :1.28rem
         line-height :0.86rem
         text-align :center
+        color :#fff
         .city
             font-size : 0.20rem
 </style>    
