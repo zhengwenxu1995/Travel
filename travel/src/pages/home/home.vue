@@ -33,7 +33,6 @@ import axios from "axios"
             succesInfo(res){
                 res=res.data;
                 const data=res.data;
-                console.log(res)
                 if(res.data && res.ret){
                     this.city=data.city;
                     this.iconList=data.iconList;
