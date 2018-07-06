@@ -7,17 +7,14 @@
         </div>
         <div class="header-input"><span class="iconfont">&#xe792;</span>输入城市/景点游玩主题</div>
         <router-link to="/city">
-            <div class="header-right">{{this.city}}<span class="iconfont city">&#xe64a;</span></div>
+            <div class="header-right"><span class="iconfont city">&#xe64a;</span></div>
         </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    homeHeader:"homeHeader",
-    props:{
-        city:String
-    }
+    homeHeader:"homeHeader"
 }
 </script>
 <style lang="stylus" scoped>

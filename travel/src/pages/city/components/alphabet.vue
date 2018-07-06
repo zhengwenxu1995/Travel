@@ -17,7 +17,8 @@ export default {
     name:"Alphabet",
     data(){
         return {
-            tuchDrag:false
+            tuchDrag:false,
+            startY:0
         }
     },
     props:{
@@ -32,6 +33,9 @@ export default {
             return letters;
         }
     },
+    updated(){
+        this.startY=this.$refs['A'][0].offsetTop;
+    },
     methods:{
         handlerChange(e){
             const val=e.srcElement.innerText; 
@@ -41,20 +45,17 @@ export default {
             this.tuchDrag=true;
         },
         handleTouchMove(e){
-            let that_=this;
-            // console.log(this.tuchDrag)
         if(this.tuchDrag){
             if(this.timer){
                 clearTimeout(this.timer);
             }
-            this.timer=setTimeout(function(){
-                    let startY=that_.$refs['A'][0].offsetTop;
+            this.timer=setTimeout(()=>{
                     let touchY=e.touches[0].clientY-75;
-                    let touchIndex=Math.floor((touchY-startY)/21.3);
+                    let touchIndex=Math.floor((touchY-this.startY)/21.3);
                         if(touchIndex>=22){
                             touchIndex=21
                         }
-                    that_.$emit("changeScroll",that_.letters[touchIndex]);
+                    this.$emit("changeScroll",this.letters[touchIndex]);
                 },20);          
             }
             

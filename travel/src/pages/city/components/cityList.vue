@@ -58,7 +58,8 @@ import BScroll from 'better-scroll'
         },
         data(){
             return {
-                letter:""
+                letter:"",
+                timer:null
             }
         },
         mounted(){
@@ -91,7 +92,7 @@ import BScroll from 'better-scroll'
 .city-list
     width :100%
     position :absolute
-    top :1.5rem
+    top :2.2rem
     left :0
     bottom :0
     overflow :hidden

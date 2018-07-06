@@ -1,6 +1,7 @@
 <template>
 <div>
     <city-header ></city-header>
+    <city-search :cities="cities"></city-search>
     <city-list :hotCities="hotCities" :cities="cities" :letters="letters"></city-list>
     <alphabet :cities="cities" @changeScroll="changePlace"></alphabet>
 </div>
@@ -12,12 +13,14 @@ import CityHeader from "./components/cityHeader"
 import CityList from "./components/cityList"
 import axios from "axios"
 import Alphabet from "./components/Alphabet"
+import CitySearch from "./components/citySearch"
 export default {
     name:"City",
     components:{
         CityHeader,
         CityList,
-        Alphabet
+        Alphabet,
+        CitySearch
     },
     data(){
         return {
@@ -43,8 +46,7 @@ export default {
         }
     },
     mounted(){
-       this.getCityInfo();
-            
+       this.getCityInfo();  
     }
 }
 </script>

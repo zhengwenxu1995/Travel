@@ -7,7 +7,7 @@
                 &#xe602;
             </div>
             </router-link>
-            城市选择
+            城市列表
         </div>
         <div class="city-chang">
             <div class="city-cont change">
@@ -33,6 +33,7 @@ export default {
         background :$bgColor
         color :#fff
         .header-title
+            color :#fff
             padding : 0 1rem
             position relative
             text-align :center
