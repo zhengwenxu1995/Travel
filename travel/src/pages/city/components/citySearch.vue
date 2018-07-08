@@ -5,7 +5,7 @@
         </div>
         <div class="seach-bear wrapper" v-show="wordKey">
             <ul>
-                <li class="seach-item border-bottom" v-for="item of searchCity" :key="item.id">
+                <li class="seach-item border-bottom" v-for="item of searchCity" :key="item.id" @click="handleCityClick(item.city)">
                     {{item.city}}
                 </li>
                 <li class="seach-item border-bottom" v-show="hasCityList">没有找到您要搜索城市</li>
@@ -53,6 +53,13 @@ export default {
             }
             },200);
             return this.searchCity;
+        }
+    },
+    methods:{
+        handleCityClick(city){
+                // this.$store.dispatch("changeCity",city);
+                this.$store.commit("changeCity",city);
+                this.$router.push("/");
         }
     },
     computed:{

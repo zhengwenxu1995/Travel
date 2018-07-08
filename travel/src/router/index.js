@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from "@/pages/home/home.vue"
 import City from "@/pages/city/city.vue"
-// import List from "@/pages/list/list"
+import Detailed from "@/pages/Detailed/Detailed"
 
 Vue.use(Router)
 
@@ -17,6 +17,10 @@ export default new Router({
       path: '/city',
       name: 'City',//给路由项起名字
       component: City//显示的组件
+    },{
+      path: '/Detailed/:id',
+      name: 'Detailed',//给路由项起名字
+      component: Detailed//显示的组件
     }
   ],
   mode:"history"

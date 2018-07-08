@@ -8,7 +8,7 @@
             <div class="now-list">
                 <div class="button">
                     <div class="button-cont">
-                        北京
+                        {{this.city}}
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 热门城市
             </div>
             <ul class="hot-list">
-                <li class="hot-cont" v-for="item of hotCities" :key="item.id">
+                <li class="hot-cont" v-for="item of hotCities" :key="item.id"  @click="handleCityClick(item.name)">
                     {{item.name}}
                 </li>
             </ul>
@@ -38,7 +38,7 @@
                 {{key}}
             </div>
             <ul class="letters-cont">
-                <li class="letters-item" v-for="cont of item" :key="cont.id">
+                <li class="letters-item" v-for="cont of item" :key="cont.id" @click="handleCityClick(cont.name)">
                     {{cont.name}}
                 </li> 
             </ul>
@@ -49,6 +49,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState,mapMutations,mapGetters } from "vuex"
     export default {
         name:"CityList",
         props:{
@@ -62,13 +63,17 @@ import BScroll from 'better-scroll'
                 timer:null
             }
         },
-        mounted(){
-            this.scroll= new BScroll(this.$refs.wrapper);
-        },
         methods:{
             change(e){
                 this.letter=e.srcElement.innerText;
-            }
+            },
+            handleCityClick(city){
+                // this.$store.dispatch("changeCity",city);
+                // this.$store.commit("changeCity",city);
+                this.changeCity(city)
+                this.$router.push("/");
+            },
+            ...mapMutations(['changeCity'])
         },
         watch:{
             letter(){
@@ -83,6 +88,13 @@ import BScroll from 'better-scroll'
                     this.scroll.scrollToElement(element);
                 }
             }
+        },
+        mounted(){
+            this.scroll= new BScroll(this.$refs.wrapper);
+        },
+        computed:{
+            ...mapState(["city"]),
+            // ...mapGetters(["cityGroup"])
         }
     }
    
@@ -132,6 +144,7 @@ import BScroll from 'better-scroll'
         top :0px
         border-left :1px solid #ccc
         border-right :1px solid #ccc
+        z-index :-1
     .hot-cont
         box-sizing :border-box
         border-bottom :1px solid #ccc
@@ -161,6 +174,7 @@ import BScroll from 'better-scroll'
         left :25%
         border-left :.02rem solid #ccc
         border-right :.02rem solid #ccc
+        z-index :-1
     .letters-cont:after
         content :""
         width :25%
@@ -168,6 +182,7 @@ import BScroll from 'better-scroll'
         position absolute
         right :25%
         border-right :.02rem solid #ccc
+        z-index :-1
     .letters-item
         float :left
         width :25%

@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
-import State from "./store"
+import store from "./store"
 import "style/reset.css"//引入重置css样式
 import "style/border.css"
 import "style/iconfont.css"
@@ -19,7 +19,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
-  State,
+  store,
   components: { App },
   template: '<App/>'
 })
