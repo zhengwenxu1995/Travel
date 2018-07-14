@@ -9,6 +9,7 @@ import "style/reset.css"//引入重置css样式
 import "style/border.css"
 import "style/iconfont.css"
 import 'swiper/dist/css/swiper.css'
+import "babel-polyfill"
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 

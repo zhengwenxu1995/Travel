@@ -3,39 +3,38 @@
         <div class="detalied-banner" 
         @click="changeShowGallary"
         >
-            <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/201405/23/0265195fc4b7913a758674357c3cc8f6.jpg_600x330_8b674516.jpg">
+            <img class="banner-img" :src="this.bannerImg">
             <div class="banner-title">
-                <p class="banner-msg">北京北京欢乐水魔方</p>
+                <p class="banner-msg">{{this.sightName}}</p>
                 <div class="iconfont-imgList">
                     <span class="iconfont">&#xe62f;&nbsp;&nbsp;</span>
-                    <em>11</em>
+                    <em>{{this.gallaryImgs.length}}</em>
                 </div>
             </div>
         </div>
-        <fade-in>
-            <picture-show :imgs="imgs" v-show="showGallary" @close="hideGallary"></picture-show>
-        </fade-in>
-        
+        <fade-animation>
+            <picture-show :gallaryImgs="this.gallaryImgs" v-show="showGallary" @close="hideGallary"></picture-show>
+        </fade-animation>
 </div>
 </template>
 
 <script>
 import PictureShow from "common/gallary"
-import FadeIn from "common/fade"
+import FadeAnimation from "common/FadeAnimation"
 export default {
     name:"DetailedCity",
     components:{
         PictureShow,
-        FadeIn
+        FadeAnimation
+    },
+    props:{
+        bannerImg:String,
+        gallaryImgs:Array,
+        sightName:String
     },
     data (){
         return {
-            showGallary:false
-            ,
-            imgs:[
-                "http://img1.qunarzz.com/sight/p0/1508/9d/562cd6d9885f4b7291d61c2d1017a222.water.jpg_r_800x800_9a977690.jpg",
-                "http://img1.qunarzz.com/sight/p0/1411/9d/703ad77a2c0297fcc15fbecf78477e7c.water.jpg_r_800x800_05052925.jpg"
-            ]
+            showGallary:false,
         }
     },
     methods:{

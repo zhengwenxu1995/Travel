@@ -13,10 +13,8 @@ module.exports = {
     //在本地服务  当输入/api时  替换路径
     proxyTable: {
         '/api':{
-          target:"http://localhost:8080/",
-          pathRewrite:{
-            '^/api':'/static/mock'
-          }
+          target:"http://localhost/dashboard/",
+         
         }
     },
 
@@ -51,7 +49,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/zhengwenxu',
 
     /**
      * Source Maps

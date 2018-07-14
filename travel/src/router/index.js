@@ -22,6 +22,9 @@ export default new Router({
       name: 'Detailed',//给路由项起名字
       component: Detailed//显示的组件
     }
-  ],
-  mode:"history"
+  ],    
+  mode:"history",
+  scrollBehavior (to, from, savedPosition) {  //解决页面滚动切换后的位置问题
+    return { x: 0, y: 0 }
+  }
 })

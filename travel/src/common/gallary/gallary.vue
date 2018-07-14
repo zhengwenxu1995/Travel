@@ -1,15 +1,13 @@
 <template>
     <div class="picture-pater" @click="hideGallary">
-            <div class="swiper" >
-                <swiper :options="swiperOption">
-
-                    <swiper-slide v-for="(item,index) in imgList" :key="index">
-                        <img class="img-swiper"  :src="item">
-                    </swiper-slide>
-                    
-                    <div class="swiper-pagination"  slot="pagination"></div>
-                </swiper>
-            </div>
+        <div class="swiper" >
+            <swiper :options="swiperOption">
+                <swiper-slide v-for="(item,index) of gallaryImgs" :key="index">
+                    <img class="img-swiper" :src="item">
+                </swiper-slide>
+                <div class="swiper-pagination"  slot="pagination"></div>
+            </swiper>
+        </div>
     </div>
 </template>
 
@@ -17,21 +15,20 @@
 
 export default {
     name : "PictureShow",
+     props:{
+        gallaryImgs:Array  
+    },
     data(){
         return {
             swiperOption:{
                 pagination:".swiper-pagination",
                 paginationType:"fraction",
                 observer:true,
-                observerParent:true
+                observeParents:true
             },
-            imgList:this.imgs
-        }
-        
+        } 
     },
-    props:{
-        imgs:Array  
-    },
+   
     methods:{
         hideGallary(){
             this.$emit("close")
@@ -44,7 +41,7 @@ export default {
     .swiper >>> .swiper-container
         overflow :inherit
     .picture-pater
-        position :absolute
+        position :fixed
         left :0
         right :0
         bottom :0
@@ -57,10 +54,9 @@ export default {
         .swiper
             width :100%
             height :0
-            padding-bottom :80%
+            padding-bottom :100%
             .img-swiper
                 width :100%
-                height :100%
             .swiper-pagination
                 color :#fff
                 bottom :-2.5rem
